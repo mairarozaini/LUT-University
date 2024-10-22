@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-weight: 600;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('assets/background/bg.jpg') no-repeat center center/cover;
+    min-width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 0;
+}
+
+.regular-txt {
+    font-weight: 400;
+}
+
+.main-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0.15));
+    border-radius: 12px;
+    backdrop-filter: blur(100px);
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.city-input {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background: rgba(0, 0, 0, 0.15);
+    outline: none;
+    font-weight: 500;
+    transition: border 0.25s;
+    font-size: 16px;
+    padding-right: 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.city-input:focus {
+    border-color: white;
+}
+
+.city-input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.search-btn {
+    position: absolute;
+    right: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+}
+
+.geolocation-btn {
+    position: absolute;
+    right: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.star-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.location-date-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.save-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    border-radius: 8px;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.dropdown-item {
+    padding: 10px 16px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.current-date-txt {
+    margin-left: auto;
+    text-align: right;
+    white-space: nowrap;
+    font-weight: 400;
+}
+
+.weather-summary-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-summary-img {
+    width: 120px;
+    height: 120px;
+}
+
+.weather-summary-info {
+    text-align: end;
+}
+
+.weather-conditions-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.condition-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.condition-item span {
+    font-size: 30px;
+}
+
+.forecast-items-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+}
+
+.forecast-items-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.forecast-items-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 99px;
+}
+
+.forecast-items-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 99px;
+}
+
+.forecast-item {
+    min-width: 70px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 12px;
+    transition: 0.3s background;
+}
+
+.forecast-item-img {
+    width: 35px;
+    height: 35px;
+}
+
+.forecast-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.section-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
+.section-message img {
+    height: 150px;
+}
+
+@media screen and (max-width: 768px) {
+    .main-container {
+        max-width: 90%;
+    }
+
+    .forecast-items-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .forecast-item {
+        flex: 1 1 calc(50% - 10px);
+        min-width: calc(50% - 10px);
+    }
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.autocomplete {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 3px solid white transparent;
+    border-radius: 12px;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.autocomplete-items div {
+    padding: 10px 16px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.autocomplete-items::-webkit-scrollbar {
+    width: 8px;
+}
+
+.autocomplete-items::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 99px;
+}
+
+.autocomplete-items::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 99px;
+}
+
+.autocomplete-items div:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.autocomplete-active {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    color: white;
+}
